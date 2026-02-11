@@ -1,0 +1,238 @@
+<html class="dark" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Project Gallery - Logic Flow - Mamshad</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d93f2",
+                        "background-dark": "#0a0f14",
+                        "terminal-red": "#ff5f56",
+                        "terminal-yellow": "#ffbd2e",
+                        "terminal-green": "#27c93f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            @apply bg-background-dark text-slate-100 overflow-x-hidden;
+        }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image:
+                    linear-gradient(to right, rgba(13, 147, 242, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(13, 147, 242, 0.05) 1px, transparent 1px);
+        }
+        .glass {
+            background: rgba(16, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .terminal-window {
+            @apply glass rounded-lg overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        .terminal-header {
+            @apply bg-white/5 px-4 py-2 flex items-center gap-1.5 border-b border-white/10;
+        }
+        .dot { @apply w-2.5 h-2.5 rounded-full; }
+        .connecting-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #0d93f2, transparent);
+            height: 1px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .connecting-line.vertical {
+            background: linear-gradient(180deg, transparent, #0d93f2, transparent);
+            width: 1px;
+            height: 100%;
+        }
+        .flow-tag {
+            @apply absolute text-[10px] font-bold text-primary/60 uppercase tracking-widest bg-background-dark px-2 py-0.5 border border-primary/20 rounded-full;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen">
+<header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-[960px]">
+<nav class="glass rounded-xl px-6 py-3 flex items-center justify-between shadow-2xl">
+<a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">account_tree</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Mamshad</h2>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1" href="index.html">
+<span class="material-symbols-outlined text-sm">grid_view</span> Canvas
+            </a>
+<a class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1" href="resume.html">
+<span class="material-symbols-outlined text-sm">description</span> Resume
+            </a>
+<a class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1" href="contact.html">
+<span class="material-symbols-outlined text-sm">mail</span> Contact
+            </a>
+</div>
+<div class="flex items-center gap-3">
+<a href="project_gallery.html" class="size-10 glass rounded-lg flex items-center justify-center bg-primary/20 text-primary transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+</a>
+<div class="size-10 rounded-full border-2 border-primary/30 p-0.5">
+<img alt="Profile avatar" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_jetNi6iQLhIYUrYbelyl4QGhklaRbhfO_5VG6uqGIboFYBzjOIDP_mYdNkoSi_8n6BZwUpz_hKViAP1s8rKV30WYvdzVnZ8lZ4odUXN0JjXuKoa8IuJN9IRcKEV0j9OUcFGM3FW-6oIS73yAK2ciHKKZz5nwdNr-htbTE0NcAhmkE70mE1UX7OzCk5oFYBg5IJ2z7dABPGESFSTvUU2TI7xvjECQQy0Qk5YHbSRPtWwTpDdb_4ENES9r99z7wjF6dIiMyQ6DMDnj"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto relative">
+    <div class="mb-12">
+        <h1 class="text-4xl font-bold text-white mb-2">Project Gallery</h1>
+        <p class="text-slate-400 max-w-2xl">A systematic visualization of software architectures, experimental nodes, and deployed systems.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative">
+        <div class="connecting-line hidden lg:block" style="top: 25%; left: 30%; width: 10%;"></div>
+        <div class="flow-tag hidden lg:block" style="top: 25%; left: 35%;">Data Flow</div>
+        <div class="connecting-line vertical hidden lg:block" style="top: 30%; left: 50%;"></div>
+        <div class="flow-tag hidden lg:block" style="top: 50%; left: 50%;">API Call</div>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="dot bg-terminal-red"></div>
+                <div class="dot bg-terminal-yellow"></div>
+                <div class="dot bg-terminal-green"></div>
+                <span class="ml-2 text-[10px] font-mono text-slate-500 uppercase tracking-wider">ecommerce-api.v1</span>
+            </div>
+            <div class="p-6">
+                <div class="aspect-video mb-4 rounded border border-white/5 overflow-hidden">
+                    <img alt="E-commerce API" class="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOe_xRx6QksHf2KF265EC7pgWQMxgxvNg-O-s_Ig4Nqq_fG49xesfK7H8zEkUFYFVAwI6rDmq1YSH8BVcci9UkEIVunTpS3w2FUBafktDaD8CWo5ZhP0n4RbRjhXnEdB8IweMx1kCwUfwPXQtQ8jFsp_ahMkLxdot5SGZmGmQ6Tyc4KgwzEYJWh717vBP48CANRqvKLEja1WVrgQdlxNEOHgaMKaJoThYFQTj45-f3xnMGqmObbc8kv6wegwyTkEJFR19JnHU1PndR"/>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Scalable E-commerce API</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">High-performance REST API with microservices architecture, handling 5k+ requests per minute.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">NODE.JS</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">REDIS</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">POSTGRES</span>
+                </div>
+                <a class="flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-bold" href="#">
+                    <span>VIEW LIVE</span>
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+            </div>
+        </div>
+        <div class="terminal-window relative lg:translate-y-8">
+            <div class="terminal-header">
+                <div class="dot bg-terminal-red"></div>
+                <div class="dot bg-terminal-yellow"></div>
+                <div class="dot bg-terminal-green"></div>
+                <span class="ml-2 text-[10px] font-mono text-slate-500 uppercase tracking-wider">smart-home-db.v2</span>
+            </div>
+            <div class="p-6">
+                <div class="aspect-video mb-4 rounded border border-white/5 overflow-hidden">
+                    <img alt="Smart Home" class="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_jetNi6iQLhIYUrYbelyl4QGhklaRbhfO_5VG6uqGIboFYBzjOIDP_mYdNkoSi_8n6BZwUpz_hKViAP1s8rKV30WYvdzVnZ8lZ4odUXN0JjXuKoa8IuJN9IRcKEV0j9OUcFGM3FW-6oIS73yAK2ciHKKZz5nwdNr-htbTE0NcAhmkE70mE1UX7OzCk5oFYBg5IJ2z7dABPGESFSTvUU2TI7xvjECQQy0Qk5YHbSRPtWwTpDdb_4ENES9r99z7wjF6dIiMyQ6DMDnj"/>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Smart Home Dashboard</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">Real-time IoT monitoring system with predictive analytics and customizable automation nodes.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">REACT</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">MQTT</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">D3.JS</span>
+                </div>
+                <a class="flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-bold" href="#">
+                    <span>VIEW LIVE</span>
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+            </div>
+        </div>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="dot bg-terminal-red"></div>
+                <div class="dot bg-terminal-yellow"></div>
+                <div class="dot bg-terminal-green"></div>
+                <span class="ml-2 text-[10px] font-mono text-slate-500 uppercase tracking-wider">neural-viz.exp</span>
+            </div>
+            <div class="p-6">
+                <div class="aspect-video mb-4 rounded border border-white/5 overflow-hidden bg-slate-900/50 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-4xl text-primary/20">psychology</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Neural Network Visualizer</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">An educational tool to visualize weight propagation in shallow neural networks in real-time.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">PYTHON</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">TENSORFLOW</span>
+                </div>
+                <a class="flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-bold" href="#">
+                    <span>VIEW GITHUB</span>
+                    <span class="material-symbols-outlined text-sm">terminal</span>
+                </a>
+            </div>
+        </div>
+        <div class="terminal-window lg:translate-x-12">
+            <div class="terminal-header">
+                <div class="dot bg-terminal-red"></div>
+                <div class="dot bg-terminal-yellow"></div>
+                <div class="dot bg-terminal-green"></div>
+                <span class="ml-2 text-[10px] font-mono text-slate-500 uppercase tracking-wider">cloud-sync.sys</span>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">Cloud File Sync Engine</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">Custom delta-sync algorithm for efficient binary file updates across distributed nodes.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">GO</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">S3</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">DOCKER</span>
+                </div>
+                <div class="flex gap-4">
+                    <a class="text-primary hover:text-white transition-colors text-sm font-bold flex items-center gap-1" href="#">
+                        DOCS <span class="material-symbols-outlined text-xs">description</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="terminal-window lg:-translate-y-4">
+            <div class="terminal-header">
+                <div class="dot bg-terminal-red"></div>
+                <div class="dot bg-terminal-yellow"></div>
+                <div class="dot bg-terminal-green"></div>
+                <span class="ml-2 text-[10px] font-mono text-slate-500 uppercase tracking-wider">logic-flow.me</span>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">Portfolio Engine</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">The very portfolio you are browsing. Built with a focus on graph-based layout logic.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">TAILWIND</span>
+                    <span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">JS</span>
+                </div>
+                <a class="flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-bold" href="#">
+                    <span>SOURCE CODE</span>
+                    <span class="material-symbols-outlined text-sm">code</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 z-50 p-6 pointer-events-none">
+    <div class="max-w-7xl mx-auto flex justify-between items-end pointer-events-auto">
+        <div class="flex gap-4">
+            <a class="size-10 glass rounded-lg flex items-center justify-center hover:text-primary transition-colors" href="#">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+            </a>
+            <a class="size-10 glass rounded-lg flex items-center justify-center hover:text-primary transition-colors" href="#">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+            </a>
+        </div>
+        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Logic Flow Protocol v2.4.0</p>
+    </div>
+</footer>
+
+</body></html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact - Mamshad</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d93f2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0a0f14",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            @apply bg-background-dark text-slate-100;
+            overflow-x: hidden;
+        }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(13, 147, 242, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(13, 147, 242, 0.05) 1px, transparent 1px);
+        }
+        .glass {
+            background: rgba(16, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .terminal-window {
+            @apply glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl;
+        }
+        .terminal-header {
+            @apply bg-white/5 px-4 py-3 flex items-center justify-between border-b border-white/10;
+        }
+        .dot { @apply size-3 rounded-full; }
+        .terminal-body { @apply p-8 space-y-6 font-mono text-sm; }
+        .input-line { @apply flex items-center gap-3 text-primary; }
+        .terminal-input {
+            @apply bg-transparent border-none outline-none p-0 text-slate-300 w-full focus:ring-0;
+        }
+        .terminal-textarea {
+            @apply bg-transparent border-none outline-none p-0 text-slate-300 w-full focus:ring-0 resize-none h-32;
+        }
+        .node-line {
+            stroke: #0d93f2;
+            stroke-width: 2;
+            stroke-dasharray: 5, 5;
+            opacity: 0.3;
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(13, 147, 242, 0.3);
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen lowercase">
+<header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-[960px]">
+<nav class="glass rounded-xl px-6 py-3 flex items-center justify-between shadow-2xl">
+<a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">account_tree</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Mamshad</h2>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1" href="index.html">
+<span class="material-symbols-outlined text-sm">grid_view</span> Canvas
+            </a>
+<a class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1" href="resume.html">
+<span class="material-symbols-outlined text-sm">description</span> Resume
+            </a>
+<a class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1" href="contact.html">
+<span class="material-symbols-outlined text-sm">mail</span> Contact
+            </a>
+</div>
+<div class="flex items-center gap-3">
+<a href="project_gallery.html" class="size-10 glass rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+</a>
+<div class="size-10 rounded-full border-2 border-primary/30 p-0.5">
+<img alt="Profile avatar" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_jetNi6iQLhIYUrYbelyl4QGhklaRbhfO_5VG6uqGIboFYBzjOIDP_mYdNkoSi_8n6BZwUpz_hKViAP1s8rKV30WYvdzVnZ8lZ4odUXN0JjXuKoa8IuJN9IRcKEV0j9OUcFGM3FW-6oIS73yAK2ciHKKZz5nwdNr-htbTE0NcAhmkE70mE1UX7OzCk5oFYBg5IJ2z7dABPGESFSTvUU2TI7xvjECQQy0Qk5YHbSRPtWwTpDdb_4ENES9r99z7wjF6dIiMyQ6DMDnj"/>
+</div>
+</div>
+</nav>
+</header>
+
+    <main class="pt-32 pb-24 px-6 flex flex-col items-center">
+        <!-- Contact Nodes -->
+        <div class="relative w-full max-w-md mb-24 mt-12">
+            <svg class="absolute inset-0 w-full h-full -top-16 z-0 overflow-visible">
+                <line class="node-line" x1="50%" y1="100%" x2="20%" y2="0"></line>
+                <line class="node-line" x1="50%" y1="100%" x2="50%" y2="0"></line>
+                <line class="node-line" x1="50%" y1="100%" x2="80%" y2="0"></line>
+            </svg>
+            <div class="relative z-10 flex justify-between items-start -top-16">
+                 <a href="https://github.com/mrmamshad" target="_blank" class="flex flex-col items-center gap-2 group">
+                    <div class="size-12 glass rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-all border-primary/30">
+                        <svg class="size-6 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">github</span>
+                 </a>
+                 <a href="mailto:hello@mamshad.me" class="flex flex-col items-center gap-2 group">
+                    <div class="size-12 glass rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-all border-primary/30">
+                        <span class="material-symbols-outlined text-xl text-slate-300">alternate_email</span>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">email</span>
+                 </a>
+                 <a href="https://linkedin.com/in/mrmamshad" target="_blank" class="flex flex-col items-center gap-2 group">
+                    <div class="size-12 glass rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-all border-primary/30">
+                        <svg class="size-6 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">linkedin</span>
+                 </a>
+            </div>
+
+            <!-- Contact Me Central Node -->
+            <div class="absolute left-1/2 -translate-x-1/2 -top-4 glass px-12 py-4 rounded-xl border border-primary/30 text-center min-w-[320px] shadow-[0_0_30px_rgba(13,147,242,0.2)]">
+                <div class="flex items-center justify-center gap-3 mb-1">
+                    <div class="size-6 bg-primary flex items-center justify-center rounded-lg text-white">
+                        <span class="material-symbols-outlined text-sm">hub</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white tracking-tight">Contact Me</h1>
+                </div>
+                <p class="text-[10px] text-slate-400 font-medium">Initiating direct connection sequence...</p>
+            </div>
+        </div>
+
+        <!-- Terminal Form -->
+        <div class="w-full max-w-3xl terminal-window">
+            <div class="terminal-header">
+                <div class="flex gap-2">
+                    <div class="dot bg-rose-500"></div>
+                    <div class="dot bg-amber-500"></div>
+                    <div class="dot bg-emerald-500"></div>
+                </div>
+                <div class="text-[10px] font-bold text-slate-500 tracking-[0.2em] font-mono">
+                    MAMSHAD_OS - /dev/null/contact_service
+                </div>
+                <div class="size-3"></div>
+            </div>
+            <form action="https://formspree.io/f/mrbpzeqv" method="POST" class="terminal-body">
+                <div>
+                    <p class="text-slate-500 mb-2">// Initialize message protocol</p>
+                    <div class="input-line">
+                        <span class="font-bold">></span>
+                        <input type="text" name="name" required placeholder="Enter your name" class="terminal-input" />
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-slate-500 mb-2">// Verify return address</p>
+                    <div class="input-line">
+                        <span class="font-bold">></span>
+                        <input type="email" name="email" required placeholder="you@domain.me" class="terminal-input" />
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-slate-500 mb-2">// Define transmission subject</p>
+                    <div class="input-line">
+                        <span class="font-bold">></span>
+                        <input type="text" name="_subject" required placeholder="Collaboration / Inquiry / Hello" class="terminal-input" />
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-slate-500 mb-2">// Compile message body</p>
+                    <div class="input-line">
+                        <span class="font-bold">></span>
+                        <textarea name="message" required placeholder="Start typing your message ..." class="terminal-textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="pt-6 flex items-center justify-between">
+                    <button type="submit" class="bg-primary hover:bg-primary/80 text-white px-6 py-3 rounded-xl font-bold font-mono text-sm tracking-tight flex items-center gap-3 transition-all glow-primary">
+                         <span class="material-symbols-outlined text-sm">send</span>
+                         sudo run send_message.sh
+                    </button>
+                    <div class="flex items-center gap-8 font-mono">
+                        <div class="flex items-center gap-2">
+                             <div class="size-2 bg-emerald-500 rounded-full"></div>
+                             <span class="text-[10px] text-slate-500 font-bold uppercase">System Ready</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                             <div class="size-2 bg-primary rounded-full"></div>
+                             <span class="text-[10px] text-slate-500 font-bold uppercase">Node Linked</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-8 text-center font-mono">
+            <p class="text-[10px] text-slate-500 uppercase tracking-[0.4em] font-bold">v2.4.0-stable</p>
+        </div>
+    </main>
+
+    <footer class="fixed bottom-0 left-0 right-0 z-50 p-6 pointer-events-none">
+        <div class="max-w-7xl mx-auto flex justify-between items-end pointer-events-auto">
+            <div class="flex gap-4">
+                <a class="size-10 glass rounded-lg flex items-center justify-center hover:text-primary transition-colors" href="https://github.com/mrmamshad" target="_blank">
+                    <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                </a>
+                <a class="size-10 glass rounded-lg flex items-center justify-center hover:text-primary transition-colors" href="https://linkedin.com/in/mrmamshad" target="_blank">
+                    <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                </a>
+            </div>
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Logic Flow Protocol v2.4.0</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
